@@ -1,164 +1,166 @@
-# Personal Loan Prediction Model
-
-## 📋 **Project Overview**
-
-This project analyzes data from a personal loan campaign and builds predictive models to determine the likelihood of customers purchasing personal loans. The goal is to use machine learning to identify key factors influencing loan acceptance and improve the campaign's effectiveness by targeting high-potential customers.
-
-## 🧰 **Technologies and Tools Used**
-
-* **Programming Language:** Python
-* **Libraries:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`
-* **Algorithms Used:**
-  * Logistic Regression
-  * Decision Tree Classifier (with Pre-Pruning, Hyperparameter Tuning, and Post-Pruning)
-* **Visualization Tools:** Matplotlib, Seaborn
-* **Environment:** Jupyter Notebook
-
-## 🎯 **Project Objectives**
-
-1. Analyze the dataset to identify factors influencing personal loan acceptance.
-2. Build and evaluate models to predict customer likelihood of accepting loans.
-3. Optimize the models to achieve high recall and accuracy to minimize false negatives.
-4. Provide actionable insights and recommendations to improve marketing strategies.
+# **Thera Bank Personal Loan Campaign Analysis**
 
 ---
 
-## 📊 **Data Exploration and Preparation**
+---
 
-### **Dataset Overview**
+## **Project Overview**
 
-The dataset contains customer demographic, financial, and behavioral data:
-
-* **Target Variable:** `PersonalLoan` (1 if customer accepted the loan, 0 otherwise)
-* **Features:** Income, Education, Age, Family Size, Average Spending (CCAvg), Mortgage, etc.
-
-### **Exploratory Data Analysis (EDA)**
-
-1. Identified key features correlated with loan acceptance:
-   * **Income** : Higher income increases loan acceptance likelihood.
-   * **Education Level** : Customers with graduate/advanced degrees are more likely to accept loans.
-   * **Family Size** : Customers with 3-4 family members are more likely to accept loans.
-2. Handled data imbalances and outliers effectively.
+Thera Bank recently achieved a 9.6% conversion rate in its personal loan campaign. While commendable, this provides an opportunity to optimize targeting and increase campaign efficiency. This project focuses on developing a **predictive model** that identifies liability customers likely to accept personal loans, enabling **targeted marketing efforts** that reduce costs and maximize conversions.
 
 ---
 
-## 🏗️ **Model Building**
+## **Objectives**
 
-### **Approach**
-
-1. **Logistic Regression** :
-
-* Baseline model to identify important features and assess performance.
-* Tuned using optimal threshold based on ROC-AUC curve to improve recall.
-
-1. **Decision Tree Classifier** :
-
-* Built models with pre-pruning, hyperparameter tuning, and post-pruning.
-* Post-pruned Decision Tree provided the best performance with:
-  * 96% **Recall** on test data.
-  * Reduced false negatives.
-
-### **Model Comparison**
-
-| Model                                   | Train Accuracy | Test Accuracy  | Train Recall   | Test Recall    |
-| --------------------------------------- | -------------- | -------------- | -------------- | -------------- |
-| Logistic Regression (Optimal Threshold) | 0.92           | 0.91           | 0.90           | 0.88           |
-| Initial Decision Tree Model             | 1.00           | 0.98           | 1.00           | 0.86           |
-| Decision Tree (Hyperparameter Tuning)   | 0.99           | 0.98           | 0.92           | 0.84           |
-| **Decision Tree (Post-Pruning)**  | **0.98** | **0.97** | **0.98** | **0.96** |
+1. **Predictive Modeling**: Develop and evaluate machine learning models to predict the likelihood of a liability customer accepting a personal loan.
+2. **Targeted Campaigns**: Identify high-potential customers for future campaigns, ensuring better resource utilization.
+3. **Data Insights**: Provide actionable insights into customer behavior and their relationship with the bank.
 
 ---
 
-## 📌 **Key Insights**
+## **Deliverables**
 
-1. **Important Features** :
+1. **Exploratory Data Analysis (EDA)**:
 
-* Income.
-* Graduate and Advanced Education.
-* Family Size (3-4 members).
-* Average Spending (CCAvg).
+   - Summary statistics and data visualizations.
+   - Insights into target variable correlations.
+   - Identification of high-impact predictors.
+2. **Model Development**:
 
-1. **Misclassification Analysis** :
+   - Trained classification models including Logistic Regression, K-Nearest Neighbors, and Naïve Bayes.
+   - Feature importance analysis and performance evaluation.
+3. **Model Evaluation**:
 
-* **False Negatives** : Customers with lower income and undergraduate education were occasionally misclassified as non-acceptors.
-* **False Positives** : Some customers with advanced education were misclassified as acceptors.
+   - Performance metrics: Accuracy, Precision, Recall, F1 Score, and AUC-ROC Curve.
+   - Confusion matrix for error analysis.
+4. **Actionable Insights**:
 
----
+   - Customer segments with high conversion likelihood.
+   - Data-driven recommendations for future campaigns.
+5. **Interactive Dashboards**:
 
-## 📈 **Performance Metrics**
-
-### **Confusion Matrix (Post-Pruning Decision Tree)**
-
-* **Test Data** :
-* True Positives: 138
-* False Positives: 31
-* True Negatives: 1325
-* False Negatives: 6
-
-| Metric    | Train | Test |
-| --------- | ----- | ---- |
-| Accuracy  | 0.98  | 0.97 |
-| Recall    | 0.98  | 0.96 |
-| Precision | 0.82  | 0.82 |
-| F1-Score  | 0.88  | 0.88 |
+   - Tableau dashboards for visualizing campaign trends and target customer groups.
 
 ---
 
-## 📊 **Feature Importances**
+## **Tools and Technologies**
 
-From the Decision Tree, the most important features were:
+- **Data Analysis & Visualization**:
 
-1. **Income** (strongest predictor).
-2. **Graduate Education** .
-3. **Family Size (3 and 4 members)** .
-4. **CCAvg (Credit Card Average Spending)** .
-5. **Advanced Education** .
+  - **Python Libraries**: Pandas, NumPy, Matplotlib, Seaborn, Plotly, and Scipy for statistical analysis.
+  - **Exploratory Data Analysis (EDA)**: Detailed insights using Python.
+- **Machine Learning & Modeling**:
 
----
+  - **Scikit-learn**: Logistic Regression, K-Nearest Neighbors (KNN), Naïve Bayes, and Decision Trees.
+  - **XGBoost**: Advanced modeling for feature importance and predictive analysis.
+  - **Hyperparameter Tuning**: GridSearchCV for optimal parameter selection.
+- **Interactive Dashboards**:
 
-## 📋 **Conclusions**
+  - **Tableau**: Intuitive dashboards for storytelling.
+  - **Power BI**: Additional visualization options.
+- **Data Management**:
 
-1. The **post-pruned Decision Tree model** is the best for predicting loan acceptance, with high recall and reduced false negatives.
-2. Customers with higher income, graduate/advanced education, and medium to large family sizes are the most likely to accept loans.
+  - **SQL**: Data extraction and preparation.
+  - **OpenPyXL**: For Excel-based workflows.
+- **Documentation & Reporting**:
 
----
+  - **Jupyter Notebook**: Iterative development and comprehensive reporting.
+  - **Markdown**: Structured and professional documentation.
+  - **Microsoft Office**: PowerPoint for presentations and Word for detailed reports.
+- **Version Control**:
 
-## 🔎 **Recommendations**
+  - **Git/GitHub**: Collaborative development and version management.
+- **Others**:
 
-1. **Target High-Profile Customers** :
-
-* Income > $98,000.
-* Graduate/Advanced education level.
-* Family size of 3-4 members.
-* High average spending.
-
-1. **Introduce Customer Segmentation** :
-
-* **High Profile** : Personalized offers and relationship managers.
-* **Medium Profile** : Competitive loan rates with flexible terms.
-* **Low Profile** : Prequalification campaigns to assess interest.
-
-1. **Data-Driven Marketing** :
-
-* Focus campaigns on high-income customers in graduate/advanced education categories.
-* Highlight competitive interest rates and personalized loan options.
+  - **Google Colab**: Cloud-based collaborative coding.
+  - **Numba**: Optimized Python performance.
+  - **PyCaret**: Automated machine learning for experimentation.
 
 ---
 
-## 🛠️ **How to Use This Project**
+## **Project Methodology**
 
-1. Clone the repository:
-   <pre class="!overflow-visible"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary dark:bg-gray-950"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-sidebar-surface-primary px-2 font-sans text-xs text-token-text-secondary dark:bg-token-main-surface-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center select-none py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">git clone <repository_url>
-   </code></div></div></pre>
-2. Install the required Python libraries:
-   <pre class="!overflow-visible"><div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary dark:bg-gray-950"><div class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none">bash</div><div class="sticky top-9 md:top-[5.75rem]"><div class="absolute bottom-0 right-2 flex h-9 items-center"><div class="flex items-center rounded bg-token-sidebar-surface-primary px-2 font-sans text-xs text-token-text-secondary dark:bg-token-main-surface-secondary"><span class="" data-state="closed"><button class="flex gap-1 items-center select-none py-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5C7 3.34315 8.34315 2 10 2H19C20.6569 2 22 3.34315 22 5V14C22 15.6569 20.6569 17 19 17H17V19C17 20.6569 15.6569 22 14 22H5C3.34315 22 2 20.6569 2 19V10C2 8.34315 3.34315 7 5 7H7V5ZM9 7H14C15.6569 7 17 8.34315 17 10V15H19C19.5523 15 20 14.5523 20 14V5C20 4.44772 19.5523 4 19 4H10C9.44772 4 9 4.44772 9 5V7ZM5 9C4.44772 9 4 9.44772 4 10V19C4 19.5523 4.44772 20 5 20H14C14.5523 20 15 19.5523 15 19V10C15 9.44772 14.5523 9 14 9H5Z" fill="currentColor"></path></svg>Copy code</button></span></div></div></div><div class="overflow-y-auto p-4" dir="ltr"><code class="!whitespace-pre hljs language-bash">pip install -r requirements.txt
-   </code></div></div></pre>
-3. Run the Jupyter Notebook to explore the analysis and models.
+### **1. Data Understanding & EDA**
+
+- Analyze data distribution, patterns, and correlations with the target variable.
+- Identify key features influencing personal loan acceptance.
+
+### **2. Data Preparation**
+
+- Clean and preprocess data to handle missing values, outliers, and scaling.
+- Feature engineering for enhanced model effectiveness.
+
+### **3. Dataset Splitting**
+
+- Split the data into training (70%) and testing (30%) sets for robust validation.
+
+### **4. Model Training**
+
+- Train and optimize three classification algorithms:
+  - Logistic Regression
+  - K-Nearest Neighbors (KNN)
+  - Naïve Bayes
+
+### **5. Model Evaluation**
+
+- Evaluate models using metrics such as:
+  - Accuracy, Precision, Recall, F1 Score, and AUC-ROC Curve.
+- Analyze confusion matrices for error insights.
+
+### **6. Model Selection**
+
+- Select the best-performing model based on performance metrics and business implications.
+
+### **7. Recommendations**
+
+- Provide actionable insights for campaign strategies and customer segmentation.
 
 ---
 
-## 🏆 **Future Work**
+## **Timeline**
 
-1. Experiment with ensemble models (e.g., Random Forest, Gradient Boosting) to improve performance.
-2. Expand dataset with additional demographic and behavioral data for enhanced prediction.
-3. Build an interactive dashboard for real-time loan acceptance predictions.
+| **Phase**          | **Duration** |
+| ------------------------ | ------------------ |
+| Data Understanding & EDA | 1 Week             |
+| Data Preparation         | 1 Week             |
+| Model Development        | 2 Weeks            |
+| Model Evaluation         | 1 Week             |
+| Report Preparation       | 1 Week             |
+
+---
+
+## **Key Insights**
+
+- Customers with **higher income**, **graduate or advanced education**, and **larger families** (3-4 members) are more likely to accept personal loans.
+- **Spending average (CCAvg)** and **mortgage levels** also significantly influence the likelihood of loan acceptance.
+
+---
+
+## **Interactive Dashboards**
+
+- [**Sayeda N. Nahar's Tableau Dashboard**](https://public.tableau.com/app/profile/sayeda.n.nahar/viz/TheraBankPersonalLoanCampaignAnalysis_17330836850160/Story)
+- [**Nitin Arora's Tableau Dashboard**](https://public.tableau.com/app/profile/nitin.arora7381/viz/personalloandashboard/LoanTrendsandTargetGroups)
+
+---
+
+## **Expected Outcomes**
+
+- Enhanced targeting for personal loan campaigns.
+- Increased campaign ROI through precise customer segmentation.
+- A reusable framework for future predictive modeling projects.
+
+---
+
+## **Contact**
+
+- **Hanife Sahin, Sayeda Nahar, Nitin Arora, Tianyi Liu, Rahul Sharma**
+
+---
+
+## **References**
+
+- [**Bank Personal Loan Modelling Dataset**](https://www.kaggle.com/datasets/krantiswalke/bank-personal-loan-modelling)
+
+---
+
+This README is structured to provide clarity, technical depth, and a professional appearance, making it suitable for showcasing the project on GitHub.

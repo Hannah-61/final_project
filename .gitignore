@@ -1,0 +1,45 @@
+# Python-specific files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Environment configuration
+.env
+
+# Data and resources
+*.csv
+*.xlsx
+*.json
+*.db
+Resources/
+loan_predictions_for_tableau.xlsx
+Bank_Personal_Loan_Modelling.csv
+
+# Temporary or log files
+*.log
+*.tmp
+
+# Archives
+*.zip
+*.tar.gz
+
+# Machine learning artifacts
+models/
+*.pkl
+*.joblib
+output/
